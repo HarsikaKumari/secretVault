@@ -1,14 +1,18 @@
 import React from 'react'
+import notes from '../constants/notes';
+import Card from './Card';
 
 function Note() {
   return (
     <div className='note'>
-        <h1>
-            Note tittle
-        </h1>
-        <p>
-            Note content
-        </p>
+      {notes.map(noteItems => 
+        <Card
+        key={noteItems.id}
+        title={noteItems.title}
+        content={noteItems.content}
+      />
+      )}
+
     </div>
   )
 }
