@@ -1,20 +1,13 @@
-import React from 'react'
-import notes from '../constants/notes';
-import Card from './Card';
+import React from "react";
 
-function Note() {
+function Note(props) {
   return (
-    <div className='note'>
-      {notes.map(noteItems => 
-        <Card
-        key={noteItems.id}
-        title={noteItems.title}
-        content={noteItems.content}
-      />
-      )}
-
+    <div className="note">
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
+      <button>DELETE</button>
     </div>
-  )
+  );
 }
 
 export default Note;
