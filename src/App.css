@@ -61,7 +61,7 @@ footer p {
   margin-right: 10px;
   color: #FF3EA5;
   border: none;
-  width: 36px;
+  padding: 0 6px;
   height: 36px;
   cursor: pointer;
   outline: none;
