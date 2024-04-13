@@ -11,13 +11,16 @@ function App() {
     <div>
       <Header />
       <CreateArea
-        setNoteItem={setNoteItem} 
-      />
+        setNoteItem={setNoteItem}
+        />
       {noteItem.map((note, index) =>
         <Note
-          key={index}
-          title={note.title}
-          content={note.content} />
+        key={index}
+        id={index}
+        title={note.title}
+        content={note.content}
+        setNoteItem={setNoteItem}
+        />
       )}
 
       <Footer />
