@@ -3,12 +3,17 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   font-family: "Montserrat", sans-serif;
 }
+
 body {
   background: #eee;
   padding: 0 16px;
+  background-color: #eeeeee;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 header {
@@ -35,6 +40,7 @@ footer {
 footer p {
   color: #ccc;
 }
+
 .note {
   background: #fff;
   border-radius: 7px;
@@ -44,10 +50,12 @@ footer p {
   margin: 16px;
   float: left;
 }
+
 .note h1 {
   font-size: 1.1em;
   margin-bottom: 6px;
 }
+
 .note p {
   font-size: 1.1em;
   margin-bottom: 10px;
@@ -61,13 +69,13 @@ footer p {
   margin-right: 10px;
   color: #FF3EA5;
   border: none;
-  padding: 0 6px;
+  width: 36px;
   height: 36px;
   cursor: pointer;
   outline: none;
 }
 
-form {
+form.create-note {
   position: relative;
   width: 480px;
   margin: 30px auto 20px auto;
@@ -76,8 +84,9 @@ form {
   border-radius: 7px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
-form input,
-form textarea {
+
+form.create-note input,
+form.create-note textarea {
   width: 100%;
   border: none;
   padding: 4px;
@@ -86,7 +95,8 @@ form textarea {
   font-family: inherit;
   resize: none;
 }
-form button {
+
+form.create-note button {
   position: absolute;
   right: 18px;
   bottom: -18px;
@@ -94,8 +104,11 @@ form button {
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  padding: 6px;
+  display: flex;
+  /* justify-items: center; */
+  /* width: 36px; */
+  /* height: 36px; */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;

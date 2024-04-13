@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import AddTaskIcon from '@mui/icons-material/AddTask';
+import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
 
 const CreateArea = ({ setNoteItem }) => {
+    const [show, setShow] = useState(false);
     const [note, setNote] = useState({
         title: "",
         content: "",
@@ -8,6 +12,7 @@ const CreateArea = ({ setNoteItem }) => {
 
     const addItem = (e) => {
         e.preventDefault();
+
         setNoteItem((prev) => {
             return [...prev, note];
         });
@@ -30,21 +35,32 @@ const CreateArea = ({ setNoteItem }) => {
 
     return (
         <div>
-            <form>
-                <input
-                    name="title"
-                    placeholder="Title"
-                    value={note.title}
-                    onChange={handleChange}
-                />
+            <form className='create-note'>
+                {
+                    show && <input
+                        name="title"
+                        placeholder="Title"
+                        value={note.title}
+                        onChange={handleChange}
+                    />
+                }
+
                 <textarea
                     name="content"
                     placeholder="Take a note..."
-                    rows="3"
+                    rows={show ? 3 : 1}
                     value={note.content}
                     onChange={handleChange}
+                    onClick={() => {
+                        setShow(true);
+                    }}
                 />
-                <button onClick={addItem} >Add</button>
+
+                <Zoom in={show}>
+                    <Fab onClick={addItem} >
+                        <AddTaskIcon />
+                    </Fab>
+                </Zoom>
             </form>
         </div>
     )
