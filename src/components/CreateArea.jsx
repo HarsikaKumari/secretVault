@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const CreateArea = () => {
+const CreateArea = ({ setNoteItem }) => {
     const [note, setNote] = useState({
         title: "",
         content: "",
@@ -8,15 +8,22 @@ const CreateArea = () => {
 
     const addItem = (e) => {
         e.preventDefault();
-        console.log(note);
+        setNoteItem((prev) => {
+            return [...prev, note];
+        });
+
+        setNote({
+            title: "",
+            content: ""
+        });
     }
 
 
     const handleChange = (e) => {
         setNote((prev) => {
             return {
-                ...prev, 
-               [ e.target.name]: e.target.value
+                ...prev,
+                [e.target.name]: e.target.value
             }
         })
     }
@@ -37,7 +44,7 @@ const CreateArea = () => {
                     value={note.content}
                     onChange={handleChange}
                 />
-                <button onClick={addItem}>Add</button>
+                <button onClick={addItem} >Add</button>
             </form>
         </div>
     )
